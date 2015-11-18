@@ -1,64 +1,70 @@
 
-# User authentication
+to my frontend repo: https://github.com/sarabrentmccoy/project2-api
+USED: Ruby on Rails, PostgreSQL
 
-## Register
+I made an app that began as something like Yelp for more amorphous city needs -- places to kill time by yourself, public spaces in which to sit (not just parks or places like Dewey Square with city-owned seating), and so on. It soon morphed into a crowd-sourced listing of public spaces to spend time -- places where you didn't necessarily have to buy anything, and places not necessarily immediately thought of us public spaces. It could include business plazas that have something nice about them (Shady! Quiet! Perfect-range people-watching!) or semi-dormant staircases on which to sit and read a book, wait on a friend, or call your mom. Ideally each "site" entry will soon be associated with various activity tags, and will be able to be upvoted by other users. 
 
-```
-curl --include --request POST --header "Content-Type: application/json" -d '{
-  "credentials": {
-    "email": "an@example.email",
-    "password": "an example password",
-    "password_confirmation": "an example password"
-  }
-}' http://localhost:3000/register
-```
 
-## Login
 
-```
-curl --request POST --header "Content-Type: application/json" -d '{
-  "credentials": {
-    "email": "an@example.email",
-    "password": "an example password"
-  }
-}' http://localhost:3000/login
-```
 
-## Logout
+(IDEAL) USER STORIES TODAY
+An unregistered user can search for sites by neighborhood, coverage (from the sun -- do you want somewhere warm? Somewhere shady?), or busy-ness/level of activity (Somewhere busy, for people-watching? Somewhere quiet, for having a difficult conversation with someone else?). They cannot vote for sites, and they cannot post new ones.
 
-```
-curl --request DELETE --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/logout/1
-```
+A registered user can search for sites, vote for sites, and post new ones. They can delete or update those which they authored.
 
-# Users
 
-## List
+UNSOLVED PROBLEMS
+Can't update sites, see a GET, delete. 
 
-```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
-```
 
-# Books
 
-## List
+PRELIMINARY USER STORIES (from two weeks or so ago)
+Editable neighborhood guides
+	places to sit and kill time by yourself
+		libraries, bars, coffee shops, parks, a nicely placed bench, 
+	
 
-```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
-```
+things it might have
+	natural light,
+	wifi,
+	no-purchase-necessary,
+	protection from sun
+	
 
-**OR**
 
-```
-curl http://localhost:3000/users
-```
 
-## Create
+USER
+neighborhood, 
+recommendation posts, 
+votes (maybe a limit?) 
 
-```
-curl --request POST --header "Authorization: Token token=be249dc0231396806f24c953cafae03a" --header "Content-Type: application/json" -d '{
-  "book": {
-    "title":"The Hold",
-    "isbn":"abc123def456"
-  }
-}'  http://localhost:3000/books
-```
+	can only upvote if you live in that neighborhood
+	radius of a red-line stop 
+
+anyone can view any neighborhood — but must be a user to vote or add to your neighborhood (cannot to any other) 
+
+to start, would just be up to you — here’s a map of what we’re classifying as Winter Hill or Waverly Square
+
+
+USER 
+
+
+
+maybe later give the option to make their own categories
+	where I am now 
+
+USERS can
+	create spots
+	give the category and location
+
+
+
+OTHER USERS can
+	add information:
+		only restrict one opinion
+
+three tables to start
+	USERS - can do all the CRUD actions
+	LOCATIONS - can do all the CRUD actions
+	UPVOTES/DOWNVOTES - can do all the CRUD actions
+
