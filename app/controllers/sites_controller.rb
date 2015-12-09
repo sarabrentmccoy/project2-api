@@ -15,6 +15,10 @@ class SitesController < OpenReadController
     render json: @sites 
   end
   
+  def mine
+    @sites = current_user.my_sites
+    render json: @sites
+  end
 
   # def show
   #   @site = Site.find(params[:id])
@@ -59,7 +63,7 @@ class SitesController < OpenReadController
   end
 
   def site_params
-    params.require(:site).permit(:name, :description, :category, :address, :neighborhood, :scale, :coverage, :busy)
+    params.require(:site).permit(:name, :description, :category, :address, :scale, :coverage, :busy)
   end
 
   private :set_site, :site_params
