@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get '/sites/mine', to: 'sites#mine'
 
+  delete '/delete', to: 'auth#delete'
+
   resources :users, except: [:new, :edit]
 
   resources :votes, only: [:create]
