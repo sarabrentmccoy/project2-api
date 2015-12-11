@@ -38,14 +38,14 @@ class SitesController < OpenReadController
   end
 
   # PATCH /sites/1
-  def edit
+  def update
     @site = Site.find(params[:id])
     render json: site_params
-    if @site.update(site_params)
-      render json: @site
-    else
-      render json: @site.errors, status: :unprocessable_entity
-    end
+    # if @site.update(site_params)
+    #   render json: @site
+    # else
+    #   render json: @site.errors, status: :unprocessable_entity
+    # end
   end
 
   # DELETE /sites/1
