@@ -52,9 +52,6 @@ class SitesController < OpenReadController
   def destroy
     site = Site.find(params[:id])
     site.destroy
-    flash[:notice] = "page successfully deleted!!!!!"
-    redirect_to(:action => 'index')
-  
     head :no_content
   end
 

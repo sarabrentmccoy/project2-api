@@ -2,13 +2,12 @@ Rails.application.routes.draw do
   post '/register' => 'auth#register'
   # patch '/confirm' => 'auth#confirm'
   post '/login' => 'auth#login'
-  delete '/logout/:id' => 'auth#logout'
+  # delete '/logout/:id' => 'auth#logout'
 
   # do i need a patch here 
 
   get '/sites/mine', to: 'sites#mine'
 
-  delete '/delete', to: 'auth#delete'
 
   resources :users, except: [:new, :edit]
 
